@@ -27,7 +27,7 @@ namespace RolePlayerFront
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("WPF на METANIT.COM");
+            MessageBox.Show("here would be dickpick");
         }
     }
 }

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolePlayerFront", "RolePlayerFront\RolePlayerFront.csproj", "{9F5A9D4A-DADC-4ABA-BD1D-94A16E2755D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RolePlayerWPF", "RolePlayerFront\RolePlayerWPF.csproj", "{9F5A9D4A-DADC-4ABA-BD1D-94A16E2755D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolePlayerCore", "RolePlayerCore\RolePlayerCore.csproj", "{752BED2C-C139-43A3-83BF-F52F0004803D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolePlayerCore", "RolePlayerCore\RolePlayerCore.csproj", "{C8B96522-6189-476F-8625-F31D17D71B56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{9F5A9D4A-DADC-4ABA-BD1D-94A16E2755D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F5A9D4A-DADC-4ABA-BD1D-94A16E2755D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F5A9D4A-DADC-4ABA-BD1D-94A16E2755D4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{752BED2C-C139-43A3-83BF-F52F0004803D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{752BED2C-C139-43A3-83BF-F52F0004803D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{752BED2C-C139-43A3-83BF-F52F0004803D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{752BED2C-C139-43A3-83BF-F52F0004803D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B96522-6189-476F-8625-F31D17D71B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B96522-6189-476F-8625-F31D17D71B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B96522-6189-476F-8625-F31D17D71B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B96522-6189-476F-8625-F31D17D71B56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
