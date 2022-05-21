@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RolePlayerWPF", "RolePlayerFront\RolePlayerWPF.csproj", "{9F5A9D4A-DADC-4ABA-BD1D-94A16E2755D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RolePlayerCore", "RolePlayerCore\RolePlayerCore.csproj", "{C8B96522-6189-476F-8625-F31D17D71B56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolePlayerCore", "RolePlayerCore\RolePlayerCore.csproj", "{C8B96522-6189-476F-8625-F31D17D71B56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RolePlayerWPF", "RolePlayerWPF\RolePlayerWPF.csproj", "{6AC6CE88-837A-4462-8073-8019B8AF9E92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9F5A9D4A-DADC-4ABA-BD1D-94A16E2755D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F5A9D4A-DADC-4ABA-BD1D-94A16E2755D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F5A9D4A-DADC-4ABA-BD1D-94A16E2755D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F5A9D4A-DADC-4ABA-BD1D-94A16E2755D4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C8B96522-6189-476F-8625-F31D17D71B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C8B96522-6189-476F-8625-F31D17D71B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8B96522-6189-476F-8625-F31D17D71B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8B96522-6189-476F-8625-F31D17D71B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AC6CE88-837A-4462-8073-8019B8AF9E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AC6CE88-837A-4462-8073-8019B8AF9E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AC6CE88-837A-4462-8073-8019B8AF9E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AC6CE88-837A-4462-8073-8019B8AF9E92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
