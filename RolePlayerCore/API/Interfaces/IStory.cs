@@ -1,10 +1,10 @@
-﻿namespace RolePlayerCore.Interfaces;
+﻿using RolePlayerCore.API.Interfaces;
 
-public interface IStory
+namespace RolePlayerCore.Interfaces;
+
+public interface IStory : IEquatable<IStory>, IEntity
 {
-    public List<ISession> Sessions { get; }
+    public IEnumerable<ISession> Sessions { get; }
 
     public string Title { get; }
-
-    public bool Equals(object? obj);
 }

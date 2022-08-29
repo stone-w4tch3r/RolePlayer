@@ -25,10 +25,7 @@ public class DatabaseController : IDatabaseController
 
     public IEnumerable<ITrack> GetAllTracks() => _database.Tracks;
 
-    public void RemoveStory(IStory story) => _database.Stories = _database.Stories.Where(s => s.Equals(story));
+    public void RemoveStory(IStory story) => _database.Stories = _database.Stories.Where(s => !s.Equals(story));
 
-    public void RemoveTracks(IEnumerable<ITrack> tracks)
-    {
-        throw new NotImplementedException();
-    }
+    public void RemoveTracks(IEnumerable<ITrack> tracks) => _database.Tracks = _database.Tracks.Except(tracks);
 }
