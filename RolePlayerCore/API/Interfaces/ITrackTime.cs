@@ -1,5 +1,5 @@
 ﻿namespace RolePlayerCore.Interfaces;
 
-internal interface IDatabase
+public interface ITrackTime
 {
 }
