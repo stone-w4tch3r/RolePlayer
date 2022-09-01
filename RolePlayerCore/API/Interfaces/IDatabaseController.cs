@@ -1,13 +1,14 @@
 ﻿using RolePlayerCore.Interfaces;
+using RolePlayerCore.Model;
 
 namespace RolePlayerCore.API.Interfaces;
 
 public interface IDatabaseController
 {
-    public void AddTracks(IEnumerable<ITrack> tracks);
-    public void RemoveTracks(IEnumerable<ITrack> tracks);
-    public IEnumerable<ITrack> GetAllTracks();
-    public void AddStory(IStory story);
-    public void RemoveStory(IStory story);
-    public IEnumerable<IStory> GetAllStories();
+    public IDatabase AddStory(IDatabase database, IStory story);
+    public IDatabase AddTracks(IDatabase database, IEnumerable<ITrack> tracks);
+    public IDatabase RemoveStory(IDatabase database, IStory story);
+    public IDatabase RemoveTracks(IDatabase database, IEnumerable<ITrack> tracks);
+    public IEnumerable<IStory> GetAllStories(IDatabase database);
+    public IEnumerable<ITrack> GetAllTracks(IDatabase database);
 }

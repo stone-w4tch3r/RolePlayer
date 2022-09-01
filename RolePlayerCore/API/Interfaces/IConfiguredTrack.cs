@@ -4,6 +4,6 @@ public interface IConfiguredTrack
 {
     public ITrack Track { get; }
     public string Title { get; }
-    public string Comment { get; set; }
-    public ISegment SegmentToPlay { get; set; }
+    public string Comment { get; }
+    public ISegment SegmentToPlay { get; }
 }

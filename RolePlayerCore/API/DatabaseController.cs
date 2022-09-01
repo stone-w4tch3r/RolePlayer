@@ -7,25 +7,10 @@ namespace RolePlayerCore.API;
 
 public class DatabaseController : IDatabaseController
 {
-    private IDatabase _database;
-
-    public DatabaseController(string path)
-    {
-        if (File.Exists(path))
-            _database = JsonSerializer.Deserialize<IDatabase>(File.ReadAllText(path)) ?? throw new JsonException();
-        else
-            _database = new Database();
-    }
-
-    public void AddStory(IStory story) => _database.Stories = _database.Stories.Append(story);
-
-    public void AddTracks(IEnumerable<ITrack> tracks) => _database.Tracks = _database.Tracks.Concat(tracks);
-
-    public IEnumerable<IStory> GetAllStories() => _database.Stories;
-
-    public IEnumerable<ITrack> GetAllTracks() => _database.Tracks;
-
-    public void RemoveStory(IStory story) => _database.Stories = _database.Stories.Where(s => !s.Equals(story));
-
-    public void RemoveTracks(IEnumerable<ITrack> tracks) => _database.Tracks = _database.Tracks.Except(tracks);
+    public IDatabase AddStory(IDatabase db, IStory story) => new Database(db.Stories.Append(story), db.Tracks);
+    public IDatabase AddTracks(IDatabase db, IEnumerable<ITrack> tracks) => new Database(db.Stories, db.Tracks.Concat(tracks));
+    public IDatabase RemoveStory(IDatabase db, IStory story) => new Database(db.Stories.Where(s => !s.Equals(story)), db.Tracks);
+    public IDatabase RemoveTracks(IDatabase db, IEnumerable<ITrack> tracks) => new Database(db.Stories, db.Tracks.Except(tracks));
+    public IEnumerable<IStory> GetAllStories(IDatabase db) => db.Stories;
+    public IEnumerable<ITrack> GetAllTracks(IDatabase db) => db.Tracks;
 }
