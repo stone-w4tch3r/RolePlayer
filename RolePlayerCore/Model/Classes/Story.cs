@@ -1,26 +1,8 @@
-﻿using RolePlayerCore.Interfaces;
+﻿using RolePlayerCore.API.Interfaces;
 
-namespace RolePlayerCore.Model;
+namespace RolePlayerCore.Model.Classes;
 
-internal class Story : IStory
+internal record Story(IEnumerable<ISession> Sessions, string Title) : IStory
 {
-    public IEnumerable<ISession> Sessions { get; }
-    public string Title { get; }
-    public Guid Id { get; }
-
-    public Story(IEnumerable<ISession> sessions, string title, Guid id)
-    {
-        Sessions = sessions;
-        Title = title;
-        Id = id;
-    }
-
-    public Story(IEnumerable<ISession> sessions, string title)
-    {
-        Sessions = sessions;
-        Title = title;
-        Id = Guid.NewGuid();
-    }
-
-    public bool Equals(IStory? other) => Id == other?.Id;
+    public virtual bool Equals(IStory? other) => Equals((Story?)other);
 }

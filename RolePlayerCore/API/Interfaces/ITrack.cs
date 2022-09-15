@@ -1,8 +1,6 @@
-﻿using RolePlayerCore.API.Interfaces;
+﻿namespace RolePlayerCore.API.Interfaces;
 
-namespace RolePlayerCore.Interfaces;
-
-public interface ITrack : IEquatable<ITrack>, IEntity
+public interface ITrack : IEquatable<ITrack>
 {
     public string FileName { get; }
     public string Path { get; }

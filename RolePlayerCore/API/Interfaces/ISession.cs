@@ -1,4 +1,4 @@
-﻿namespace RolePlayerCore.Interfaces;
+﻿namespace RolePlayerCore.API.Interfaces;
 
 public interface ISession
 {

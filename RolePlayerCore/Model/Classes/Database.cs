@@ -1,6 +1,6 @@
-﻿using RolePlayerCore.Interfaces;
+﻿using RolePlayerCore.API.Interfaces;
 
-namespace RolePlayerCore.Model;
+namespace RolePlayerCore.Model.Classes;
 
 internal class Database : IDatabase
 {

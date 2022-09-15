@@ -1,7 +1,5 @@
 ﻿using RolePlayerCore.API.Interfaces;
-using RolePlayerCore.Interfaces;
-using RolePlayerCore.Model;
-using System.Text.Json;
+using RolePlayerCore.Model.Classes;
 
 namespace RolePlayerCore.API;
 

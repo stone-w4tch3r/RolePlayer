@@ -1,8 +1,6 @@
-﻿using RolePlayerCore.API.Interfaces;
+﻿namespace RolePlayerCore.API.Interfaces;
 
-namespace RolePlayerCore.Interfaces;
-
-public interface IStory : IEquatable<IStory>, IEntity
+public interface IStory : IEquatable<IStory>
 {
     public IEnumerable<ISession> Sessions { get; }
 

@@ -1,6 +1,4 @@
-﻿using RolePlayerCore.Interfaces;
-
-namespace RolePlayerCore.Model;
+﻿namespace RolePlayerCore.API.Interfaces;
 
 public interface IDatabase
 {
