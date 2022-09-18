@@ -7,20 +7,43 @@ namespace RolePlayerCore.API;
 public class DatabaseController : IDatabaseController
 {
     private IDatabase _db;
-    public static DatabaseController InitializeAsync(FileInfo dbFileInfo)
+    private readonly FileInfo _dbFileInfo;
+    public static async Task<DatabaseController> InitializeAsync(FileInfo dbFileInfo)
     {
-        var db = JsonSerializer.Deserialize<Database>(dbFileInfo.FullName) 
-            ?? new Database(Enumerable.Empty<IStory>(), Enumerable.Empty<ITrack>());
-        return new DatabaseController(db);
+        Database db;
+        if (!dbFileInfo.Exists)
+            db = new Database(Enumerable.Empty<IStory>(), Enumerable.Empty<ITrack>());
+        else
+            db = await JsonSerializer.DeserializeAsync<Database>(dbFileInfo.OpenRead())
+                ?? new Database(Enumerable.Empty<IStory>(), Enumerable.Empty<ITrack>());
+        return new DatabaseController(db, dbFileInfo);
     }
-    private DatabaseController(IDatabase db)
+    private DatabaseController(IDatabase db, FileInfo dbFileInfo)
     {
         _db = db;
+        _dbFileInfo = dbFileInfo;
     }
-    public void AddStory(IStory story) => _db = new Database(_db.Stories.Append(story), _db.Tracks);
-    public void AddTracks(IEnumerable<ITrack> tracks) => _db = new Database(_db.Stories, _db.Tracks.Concat(tracks));
-    public void RemoveStory(IStory story) => _db = new Database(_db.Stories.Where(s => !s.Equals(story)), _db.Tracks);
-    public void RemoveTracks(IEnumerable<ITrack> tracks) => _db = new Database(_db.Stories, _db.Tracks.Except(tracks));
+    public async Task AddStoryAsync(IStory story)
+    {
+        _db = new Database(_db.Stories.Append(story), _db.Tracks);
+        await WriteDbAsync(_db).ConfigureAwait(false);
+    }
+    public async Task AddTracksAsync(IEnumerable<ITrack> tracks)
+    {
+        _db = new Database(_db.Stories, _db.Tracks.Concat(tracks));
+        await WriteDbAsync(_db).ConfigureAwait(false);
+    }
+    public async Task RemoveStoryAsync(IStory story)
+    {
+        _db = new Database(_db.Stories.Where(s => !s.Equals(story)), _db.Tracks);
+        await WriteDbAsync(_db).ConfigureAwait(false);
+    }
+    public async Task RemoveTracksAsync(IEnumerable<ITrack> tracks)
+    {
+        _db = new Database(_db.Stories, _db.Tracks.Except(tracks));
+        await WriteDbAsync(_db).ConfigureAwait(false);
+    }
+    private async Task WriteDbAsync(IDatabase db) => await JsonSerializer.SerializeAsync(_dbFileInfo.OpenWrite(), db);
     public IEnumerable<IStory> GetAllStories() => _db.Stories;
     public IEnumerable<ITrack> GetAllTracks() => _db.Tracks;
 }
