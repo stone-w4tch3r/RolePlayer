@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RolePlayerCore", "RolePlaye
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RolePlayerWPF", "RolePlayerWPF\RolePlayerWPF.csproj", "{6AC6CE88-837A-4462-8073-8019B8AF9E92}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF2367E4-858E-4F59-863D-A1CBD4AFE0EA}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,5 +32,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55ACD202-52BF-426B-9242-B0BBA95C132E}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8B96522-6189-476F-8625-F31D17D71B56} = {CF2367E4-858E-4F59-863D-A1CBD4AFE0EA}
+		{6AC6CE88-837A-4462-8073-8019B8AF9E92} = {CF2367E4-858E-4F59-863D-A1CBD4AFE0EA}
 	EndGlobalSection
 EndGlobal

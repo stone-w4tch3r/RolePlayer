@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Model\Classes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\Interfaces\" />
+    <Folder Include="Model\Classes\" />
+  </ItemGroup>
+
 </Project>
