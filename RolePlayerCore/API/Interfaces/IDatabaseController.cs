@@ -2,10 +2,10 @@
 
 public interface IDatabaseController
 {
-    public IDatabase AddStory(IDatabase db, IStory story);
-    public IDatabase AddTracks(IDatabase db, IEnumerable<ITrack> tracks);
-    public IDatabase RemoveStory(IDatabase db, IStory story);
-    public IDatabase RemoveTracks(IDatabase db, IEnumerable<ITrack> tracks);
-    public IEnumerable<IStory> GetAllStories(IDatabase db);
-    public IEnumerable<ITrack> GetAllTracks(IDatabase db);
+    public void AddStory(IStory story);
+    public void AddTracks(IEnumerable<ITrack> tracks);
+    public void RemoveStory(IStory story);
+    public void RemoveTracks(IEnumerable<ITrack> tracks);
+    public IEnumerable<IStory> GetAllStories();
+    public IEnumerable<ITrack> GetAllTracks();
 }
