@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\Interfaces\" />
-    <Folder Include="Model\Classes\" />
+    <Folder Include="Core\Interfaces\" />
+    <Folder Include="Core\Classes\" />
   </ItemGroup>
 
 </Project>
