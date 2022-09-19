@@ -1,6 +1,6 @@
-using RolePlayerCore.API.Interfaces;
+using RolePlayer.Model.API.Interfaces;
 
-namespace RolePlayerCore.Model.Classes;
+namespace RolePlayer.Model.Model.Classes;
 
 internal record Track(string FileName, string Path) : ITrack
 {

@@ -1,4 +1,4 @@
-﻿namespace RolePlayerCore.API.Interfaces;
+﻿namespace RolePlayer.Model.API.Interfaces;
 
 public interface ITrack : IEquatable<ITrack>
 {

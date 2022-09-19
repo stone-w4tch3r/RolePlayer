@@ -1,5 +1,5 @@
-﻿using RolePlayerCore.API.Interfaces;
+﻿using RolePlayer.Model.API.Interfaces;
 
-namespace RolePlayerCore.Model.Classes;
+namespace RolePlayer.Model.Model.Classes;
 
 internal record ConfiguredTrack(ITrack Track, string Title, string Comment, ISegment SegmentToPlay) : IConfiguredTrack;

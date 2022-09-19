@@ -1,8 +1,8 @@
-﻿using RolePlayerCore.API.Interfaces;
-using RolePlayerCore.Model.Classes;
-using System.Text.Json;
+﻿using System.Text.Json;
+using RolePlayer.Model.API.Interfaces;
+using RolePlayer.Model.Model.Classes;
 
-namespace RolePlayerCore.API;
+namespace RolePlayer.Model.API;
 
 public class DatabaseController : IDatabaseController
 {
