@@ -1,19 +1,19 @@
 ﻿using System.Text.Json;
 using RolePlayer.Model.API.Interfaces;
+using RolePlayer.Model.Core.Classes;
+using RolePlayer.Model.Core.Interfaces;
 using RolePlayer.Model.Model.Classes;
 
 namespace RolePlayer.Model.API;
 
 public class DatabaseController : IDatabaseController
 {
-    private readonly FileInfo _databaseFileInfo;
-    private IDatabase _db = null!;
-    private DatabaseController(IDatabase db, FileInfo dbFileInfo)
+    private readonly IWrapper<IDatabase> _wrappedDb;
+    private DatabaseController(IDatabase db, FileInfo dbFileInfo, IFileWorker fileWorker)
     {
-        Database = db;
-        _databaseFileInfo = dbFileInfo;
+        _wrappedDb = new OnChangeActingWrapper<IDatabase, FileInfo>(db, fileWorker.WriteObjectToJsonFile, dbFileInfo);
     }
-    public static async Task<DatabaseController> InitializeAsync(FileInfo dbFileInfo)
+    public static async Task<DatabaseController> InitializeAsync(FileInfo dbFileInfo, IFileWorker fileWorker)
     {
         Database db;
         if (!dbFileInfo.Exists)
@@ -21,29 +21,17 @@ public class DatabaseController : IDatabaseController
         else
             db = await JsonSerializer.DeserializeAsync<Database>(dbFileInfo.OpenRead()).ConfigureAwait(false)
                  ?? new Database(Enumerable.Empty<IStory>(), Enumerable.Empty<ITrack>());
-        return new DatabaseController(db, dbFileInfo);
+        return new DatabaseController(db, dbFileInfo, fileWorker);
     }
     public void AddStoryAsync(IStory story) => 
-        Database = new Database(Database.Stories.Append(story), Database.Tracks);
+        _wrappedDb.Value = new Database(_wrappedDb.Value.Stories.Append(story), _wrappedDb.Value.Tracks);
     public void AddTracksAsync(IEnumerable<ITrack> tracks) =>
-        Database = new Database(Database.Stories, Database.Tracks.Concat(tracks));
+        _wrappedDb.Value = new Database(_wrappedDb.Value.Stories, _wrappedDb.Value.Tracks.Concat(tracks));
     public void RemoveStoryAsync(IStory story) =>
-        Database = new Database(Database.Stories.Where(s => !s.Equals(story)), Database.Tracks);
+        _wrappedDb.Value = new Database(_wrappedDb.Value.Stories.Where(s => 
+            !s.Equals(story)), _wrappedDb.Value.Tracks);
     public void RemoveTracksAsync(IEnumerable<ITrack> tracks) =>
-        Database = new Database(Database.Stories, Database.Tracks.Except(tracks));
-    public IEnumerable<IStory> GetAllStories() => Database.Stories;
-    public IEnumerable<ITrack> GetAllTracks() => Database.Tracks;
-    private IDatabase SetDatabase(IDatabase db, FileInfo dbFileInfo)
-    {
-        _db = db;
-        WriteDbAsync(_db, dbFileInfo);
-        return _db;
-    }
-    private void WriteDbAsync(IDatabase db, FileInfo dbFileInfo)
-    {
-         var options = new JsonSerializerOptions() { WriteIndented = true };
-         using var stream = File.Create(dbFileInfo.FullName);
-         JsonSerializer.Serialize(stream, db, options);
-         stream.Dispose();
-    }
+        _wrappedDb.Value = new Database(_wrappedDb.Value.Stories, _wrappedDb.Value.Tracks.Except(tracks));
+    public IEnumerable<IStory> GetAllStories() => _wrappedDb.Value.Stories;
+    public IEnumerable<ITrack> GetAllTracks() => _wrappedDb.Value.Tracks;
 }
