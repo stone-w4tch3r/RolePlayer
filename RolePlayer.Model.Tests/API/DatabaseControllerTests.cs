@@ -2,7 +2,7 @@ using Moq;
 using RolePlayer.Model.API;
 using RolePlayer.Model.API.Interfaces;
 
-namespace RolePlayer.Model.Tests;
+namespace RolePlayer.Model.Tests.API;
 
 public class DatabaseControllerTests
 {

@@ -14,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Core\Interfaces\" />
-    <Folder Include="Core\Classes\" />
+    <Folder Include="Core\Records\" />
   </ItemGroup>
 
 </Project>

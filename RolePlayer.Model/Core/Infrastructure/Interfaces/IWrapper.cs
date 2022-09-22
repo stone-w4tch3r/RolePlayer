@@ -1,4 +1,4 @@
-namespace RolePlayer.Model.Core.Interfaces;
+namespace RolePlayer.Model.Core.Infrastructure.Interfaces;
 
 internal interface IWrapper<T>
 {

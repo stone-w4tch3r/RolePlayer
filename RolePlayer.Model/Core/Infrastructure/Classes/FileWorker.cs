@@ -1,8 +1,6 @@
 using System.Text.Json;
-using RolePlayer.Model.API.Interfaces;
-using RolePlayer.Model.Core.Interfaces;
 
-namespace RolePlayer.Model.Core.Classes;
+namespace RolePlayer.Model.Core.Infrastructure.Classes;
 
 internal class FileWorker
 {

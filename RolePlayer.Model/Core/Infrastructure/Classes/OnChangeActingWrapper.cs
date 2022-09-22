@@ -1,6 +1,6 @@
-using RolePlayer.Model.Core.Interfaces;
+using RolePlayer.Model.Core.Infrastructure.Interfaces;
 
-namespace RolePlayer.Model.Core.Classes;
+namespace RolePlayer.Model.Core.Infrastructure.Classes;
 
 internal class OnChangeActingWrapper<TValue, TArgument> : IWrapper<TValue>
 {
