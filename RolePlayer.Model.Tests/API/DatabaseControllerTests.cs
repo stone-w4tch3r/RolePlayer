@@ -1,6 +1,7 @@
 using Moq;
 using RolePlayer.Model.API;
 using RolePlayer.Model.API.Interfaces;
+using RolePlayer.Model.Core.Infrastructure.Classes;
 
 namespace RolePlayer.Model.Tests.API;
 
@@ -16,12 +17,8 @@ public class DatabaseControllerTests
         _testFileInfo = new FileInfo(Path.Combine(testFilesDirectoryInfo.FullName, TestDbFileName));
     }
 
-    //[TearDown]
-    public void AfterEachTest()
-    {
-        if (_testFileInfo.Exists)
-            _testFileInfo.Delete();
-    }
+    [SetUp]
+    public void Setup() => _testFileInfo.Delete();
 
     [Test]
     public async Task InitializeAsync_FileNotExists_ReturnsEmpty()
@@ -29,9 +26,19 @@ public class DatabaseControllerTests
         var fileWorkerMock = new Mock<IFileWorker>(MockBehavior.Strict);
         fileWorkerMock.Setup(x => 
             x.WriteObjectToJsonFile(It.IsAny<IDatabase>(), It.IsAny<FileInfo>()));
+        
         var databaseController = await DatabaseController.InitializeAsync(_testFileInfo, fileWorkerMock.Object);
-        //Assert.IsEmpty(databaseController.GetAllStories());
-        //Assert.IsEmpty(databaseController.GetAllTracks());
+        
+        Assert.That(databaseController.GetAllStories(), Is.Empty);
+        Assert.That(databaseController.GetAllTracks(), Is.Empty);
         fileWorkerMock.VerifyAll();
+    }
+    
+    [Test]
+    public async Task InitializeAsync_FileNotExists_WritesFile()
+    {
+        _ = await DatabaseController.InitializeAsync(_testFileInfo, new FileWorker());
+        
+        Assert.That(_testFileInfo.RefreshImmediately().Exists);
     }
 }
