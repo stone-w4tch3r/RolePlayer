@@ -11,7 +11,8 @@ public class DatabaseController : IDatabaseController
     private readonly IWrapper<IDatabase> _wrappedDb;
     private DatabaseController(IDatabase db, FileInfo dbFileInfo, IFileWorker fileWorker)
     {
-        _wrappedDb = new OnChangeActingWrapper<IDatabase, FileInfo>(db, fileWorker.WriteObjectToJsonFile, dbFileInfo);
+        _wrappedDb = new OnChangeActingWrapper<IDatabase, FileInfo>
+            (db, fileWorker.WriteObjectToJsonFileAsync, dbFileInfo);
     }
     public static async Task<DatabaseController> InitializeAsync(FileInfo dbFileInfo, IFileWorker fileWorker)
     {
@@ -19,8 +20,7 @@ public class DatabaseController : IDatabaseController
         if (!dbFileInfo.Exists)
             db = new Database(Enumerable.Empty<IStory>(), Enumerable.Empty<ITrack>());
         else
-            db = await JsonSerializer.DeserializeAsync<Database>(dbFileInfo.OpenRead()).ConfigureAwait(false)
-                 ?? new Database(Enumerable.Empty<IStory>(), Enumerable.Empty<ITrack>());
+            db = await fileWorker.ReadObjectFromJsonFileAsync<Database>(dbFileInfo).ConfigureAwait(false);
         return new DatabaseController(db, dbFileInfo, fileWorker);
     }
     public void AddStoryAsync(IStory story) => 

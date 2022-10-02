@@ -1,4 +1,5 @@
 using RolePlayer.Model.Core.Infrastructure.Classes;
+using System.Text.Json;
 
 namespace RolePlayer.Model.Tests.Core.Infrastructure;
 
@@ -15,30 +16,30 @@ internal class FileWorkerTests
     }
 
     [SetUp]
-    public void SetUp()
-    {
-        _testFileInfo.Delete();
-    }
+    public void SetUp() => _testFileInfo.Delete();
 
     [Test]
-    public void WriteObjectToJsonFile_CreatesFile()
+    public void WriteObjectToJsonFileAsync_CreatesFile()
     {
         var fileWorker = new FileWorker();
         var obj = new object();
         
-        fileWorker.WriteObjectToJsonFile(obj, _testFileInfo);
+        fileWorker.WriteObjectToJsonFileAsync(obj, _testFileInfo);
         
         Assert.That(_testFileInfo.RefreshImmediately().Exists);
     }
     
     [Test]
-    public async Task WriteObjectToJsonFile_FileDeserialized()
+    public async Task ReadObjectFromJsonFileAsync_FileDeserialized()
     {
         var fileWorker = new FileWorker();
         var obj = new List<string>() { "str" };
-        fileWorker.WriteObjectToJsonFile(obj, _testFileInfo);
-        
-        var result = await fileWorker.ReadObjectFromJsonFile<List<string>>(_testFileInfo);
+        await using (var stream = File.Create(_testFileInfo.FullName))
+        {
+            await JsonSerializer.SerializeAsync(stream, obj).ConfigureAwait(false);
+        }
+
+        var result = await fileWorker.ReadObjectFromJsonFileAsync<List<string>>(_testFileInfo);
         
         Assert.That(result, Is.EqualTo(obj));
     }

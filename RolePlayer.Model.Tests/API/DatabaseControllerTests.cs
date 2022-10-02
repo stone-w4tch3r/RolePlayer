@@ -1,44 +1,87 @@
 using Moq;
 using RolePlayer.Model.API;
 using RolePlayer.Model.API.Interfaces;
-using RolePlayer.Model.Core.Infrastructure.Classes;
 
 namespace RolePlayer.Model.Tests.API;
 
 public class DatabaseControllerTests
 {
-    private const string TestDbFileName = "testDb.json";
-    private readonly FileInfo _testFileInfo;
-
-    public DatabaseControllerTests()
+    private FileInfo GetAndCreateTestFileInfo()
     {
         var testFilesDirectoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory())
             .CreateSubdirectory("TestFiles");
-        _testFileInfo = new FileInfo(Path.Combine(testFilesDirectoryInfo.FullName, TestDbFileName));
+        var fileInfo =  new FileInfo(Path.Combine(testFilesDirectoryInfo.FullName, "dbControllerTestFile"));
+        File.WriteAllText(fileInfo.FullName, "");
+        return fileInfo;
     }
 
-    [SetUp]
-    public void Setup() => _testFileInfo.Delete();
+    [Test]
+    public async Task InitializeAsync_FileNotExists_CallsWriteObjectOfFileWorker()
+    {
+        var fileInfo = new FileInfo("");
+        var mockFileWorker = new Mock<IFileWorker>(MockBehavior.Strict);
+        mockFileWorker.Setup(x => x.WriteObjectToJsonFileAsync(It.IsAny<IDatabase>(), It.IsAny<FileInfo>()));
+        
+        _ = await DatabaseController.InitializeAsync(fileInfo, mockFileWorker.Object);
+        
+        mockFileWorker.VerifyAll();
+    }
+
+    [Test]
+    public async Task InitializeAsync_FileNotExists_PassesFileInfoToFileWorker()
+    {
+        var fileInfo = new FileInfo("");
+        var mockFileWorker = new Mock<IFileWorker>(MockBehavior.Strict);
+        mockFileWorker.Setup(x => x.WriteObjectToJsonFileAsync(It.IsAny<IDatabase>(), fileInfo));
+
+        _ = await DatabaseController.InitializeAsync(fileInfo, mockFileWorker.Object);
+
+        mockFileWorker.VerifyAll();
+    }
 
     [Test]
     public async Task InitializeAsync_FileNotExists_ReturnsEmpty()
     {
-        var fileWorkerMock = new Mock<IFileWorker>(MockBehavior.Strict);
-        fileWorkerMock.Setup(x => 
-            x.WriteObjectToJsonFile(It.IsAny<IDatabase>(), It.IsAny<FileInfo>()));
-        
-        var databaseController = await DatabaseController.InitializeAsync(_testFileInfo, fileWorkerMock.Object);
-        
-        Assert.That(databaseController.GetAllStories(), Is.Empty);
-        Assert.That(databaseController.GetAllTracks(), Is.Empty);
-        fileWorkerMock.VerifyAll();
+        var fileInfo = new FileInfo("");
+        var mockFileWorker = new Mock<IFileWorker>(MockBehavior.Strict);
+        mockFileWorker.Setup(x => x.WriteObjectToJsonFileAsync(It.IsAny<IDatabase>(), It.IsAny<FileInfo>()));
+
+        var dbController = await DatabaseController.InitializeAsync(fileInfo, mockFileWorker.Object);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(dbController.GetAllStories(), Is.Empty);
+            Assert.That(dbController.GetAllTracks(), Is.Empty);
+        });
+        mockFileWorker.VerifyAll();
     }
-    
+
     [Test]
-    public async Task InitializeAsync_FileNotExists_WritesFile()
+    public async Task InitializeAsync_FileExists_CallsReadObjectFromJsonFileAsync()
     {
-        _ = await DatabaseController.InitializeAsync(_testFileInfo, new FileWorker());
-        
-        Assert.That(_testFileInfo.RefreshImmediately().Exists);
+        var fileInfo = GetAndCreateTestFileInfo();
+        var mockFileWorker = new Mock<IFileWorker>(MockBehavior.Strict);
+        mockFileWorker.Setup(x => x.ReadObjectFromJsonFileAsync<IDatabase>(It.IsAny<FileInfo>()));
+
+        _ = await DatabaseController.InitializeAsync(fileInfo, mockFileWorker.Object);
+
+        mockFileWorker.VerifyAll();
+    }
+
+    [Test]
+    public async Task InitializeAsync_FileExists_ExposesReadDataInGetMethods()
+    {
+        var fileInfo = GetAndCreateTestFileInfo();
+        var mockDb = new Mock<IDatabase>(MockBehavior.Strict);
+        mockDb.Setup(x => x.Stories);
+        mockDb.Setup(x => x.Tracks);
+        var mockFileWorker = new Mock<IFileWorker>(MockBehavior.Strict);
+        mockFileWorker.Setup(x => x.ReadObjectFromJsonFileAsync<IDatabase>(It.IsAny<FileInfo>()))
+            .Returns(Task.FromResult(mockDb.Object));
+
+        _ = await DatabaseController.InitializeAsync(fileInfo, mockFileWorker.Object);
+
+        mockFileWorker.VerifyAll();
+        mockDb.VerifyAll();
     }
 }
