@@ -16,7 +16,11 @@ internal class FileWorkerTests
     }
 
     [SetUp]
-    public void SetUp() => _testFileInfo.Delete();
+    public void SetUp()
+    {
+        _testFileInfo.Delete();
+        _testFileInfo.Refresh();
+    }
 
     [Test]
     public void WriteObjectToJsonFileAsync_CreatesFile()
@@ -26,7 +30,7 @@ internal class FileWorkerTests
         
         fileWorker.WriteObjectToJsonFileAsync(obj, _testFileInfo);
         
-        Assert.That(_testFileInfo.RefreshImmediately().Exists);
+        Assert.That(_testFileInfo.Exists);
     }
     
     [Test]
