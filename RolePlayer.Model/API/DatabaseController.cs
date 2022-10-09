@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
+using RolePlayer.Essentials.Classes;
+using RolePlayer.Essentials.Interfaces;
 using RolePlayer.Model.API.Interfaces;
-using RolePlayer.Model.Core.Infrastructure.Classes;
-using RolePlayer.Model.Core.Infrastructure.Interfaces;
 using RolePlayer.Model.Core.Records;
 
 namespace RolePlayer.Model.API;

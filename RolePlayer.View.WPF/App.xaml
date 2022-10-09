@@ -1,7 +1,6 @@
-﻿<Application x:Class="RolePlayerFront.App"
+﻿<Application x:Class="RolePlayerWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:RolePlayerFront"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

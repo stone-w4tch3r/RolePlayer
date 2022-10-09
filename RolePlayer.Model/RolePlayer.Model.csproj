@@ -20,7 +20,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Core\Infrastructure\Interfaces" />
     <Folder Include="Core\Records\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RolePlayer.Essentials\RolePlayer.Essentials.csproj" />
   </ItemGroup>
 
 </Project>

@@ -18,6 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\RolePlayer.Essentials\RolePlayer.Essentials.csproj" />
       <ProjectReference Include="..\RolePlayer.Model\RolePlayer.Model.csproj" />
     </ItemGroup>
 

@@ -1,8 +1,8 @@
-using RolePlayer.Model.Core.Infrastructure.Interfaces;
+using RolePlayer.Essentials.Interfaces;
 
-namespace RolePlayer.Model.Core.Infrastructure.Classes;
+namespace RolePlayer.Essentials.Classes;
 
-internal class OnChangeActingWrapper<TValue, TArgument> : IWrapper<TValue>
+public class OnChangeActingWrapper<TValue, TArgument> : IWrapper<TValue>
 {
     private TValue _value;
     private readonly Action<TValue, TArgument> _onChangeHandler;

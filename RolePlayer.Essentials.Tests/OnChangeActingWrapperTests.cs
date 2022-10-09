@@ -1,8 +1,10 @@
 using Moq;
-using RolePlayer.Model.Core.Infrastructure.Classes;
+using NUnit.Framework;
+using RolePlayer.Essentials.Classes;
+
 // ReSharper disable UseObjectOrCollectionInitializer
 
-namespace RolePlayer.Model.Tests.Core.Infrastructure;
+namespace RolePlayer.Essentials.Tests;
 
 internal class OnChangeActingWrapperTests
 {
