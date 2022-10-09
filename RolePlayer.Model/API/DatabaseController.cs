@@ -16,11 +16,11 @@ public class DatabaseController : IDatabaseController
     }
     public static async Task<DatabaseController> InitializeAsync(FileInfo dbFileInfo, IFileWorker fileWorker)
     {
-        Database db;
+        IDatabase db;
         if (!dbFileInfo.Exists)
             db = new Database(Enumerable.Empty<IStory>(), Enumerable.Empty<ITrack>());
         else
-            db = await fileWorker.ReadObjectFromJsonFileAsync<Database>(dbFileInfo).ConfigureAwait(false);
+            db = await fileWorker.ReadObjectFromJsonFileAsync<IDatabase>(dbFileInfo).ConfigureAwait(false);
         return new DatabaseController(db, dbFileInfo, fileWorker);
     }
     public void AddStoryAsync(IStory story) => 
