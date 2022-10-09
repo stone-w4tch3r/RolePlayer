@@ -4,27 +4,23 @@ namespace RolePlayer.Model.Core.Infrastructure.Classes;
 
 internal class OnChangeActingWrapper<TValue, TArgument> : IWrapper<TValue>
 {
-    private TValue _obj;
-    private readonly OnChangeHandler<TValue, TArgument> _onChangeHandler;
+    private TValue _value;
+    private readonly Action<TValue, TArgument> _onChangeHandler;
     private readonly TArgument _argument;
-
-    public delegate void OnChangeHandler<in TSender, in TArgs>(TSender sender, TArgs args);
     public TValue Value
     {
-        get => GetValue();
-        set => SetValue(value);
+        get => _value;
+        set 
+        {
+            _value = value;
+            _onChangeHandler(_value, _argument);
+        }
     }
-    public OnChangeActingWrapper(TValue obj, OnChangeHandler<TValue, TArgument> onChangeHandler, TArgument argument)
+    public OnChangeActingWrapper(TValue value, Action<TValue, TArgument> onChangeHandler, TArgument argument)
     {
-        _obj = obj;
+        _value = value;
         _onChangeHandler = onChangeHandler;
         _argument = argument;
-        _onChangeHandler(_obj, _argument);
-    }
-    private TValue GetValue() => _obj;
-    private void SetValue(TValue obj)
-    {
-        _obj = obj;
-        _onChangeHandler(_obj, _argument);
+        _onChangeHandler(_value, _argument);
     }
 }
