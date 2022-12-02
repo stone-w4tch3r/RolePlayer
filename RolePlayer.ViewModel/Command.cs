@@ -6,8 +6,7 @@ public class Command : ICommand
 {
     private readonly Action _action;
     public event EventHandler? CanExecuteChanged;
-    public Command(Action action)
-    {
+    public Command(Action action)   
         _action = action;
     }
     public bool CanExecute(object? parameter) => throw new NotImplementedException();
