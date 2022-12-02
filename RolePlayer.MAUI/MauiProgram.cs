@@ -1,4 +1,5 @@
-﻿using RolePlayer.MAUI.Core.FunctionalExtensions;
+﻿using Microsoft.Extensions.Logging;
+using RolePlayer.MAUI.Core.FunctionalExtensions;
 
 namespace RolePlayer.MAUI;
 
@@ -13,7 +14,7 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             })
 #if DEBUG
-            .AddDebugToLogging()
+            .Tap(x => x.Logging.AddDebug())
 #endif
             .Build();
 }
