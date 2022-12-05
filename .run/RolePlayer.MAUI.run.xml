@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="RolePlayer.MAUI" type="XamarinAndroidProject" factoryName="Xamarin.Android">
+  <configuration default="false" name="RolePlayer.MAUI" type="XamarinAndroidProject" factoryName="Xamarin.Android" activateToolWindowBeforeRun="false">
     <option name="PROJECT_PATH" value="$PROJECT_DIR$/RolePlayer.MAUI/RolePlayer.MAUI.csproj" />
     <option name="PROGRAM_PARAMETERS" value="" />
     <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
@@ -8,16 +8,16 @@
       <option name="Build" />
     </method>
   </configuration>
-  <configuration default="false" name="RolePlayer.MAUI" type="XamarinIOSProject" factoryName="Xamarin.iOS">
+  <configuration default="false" name="RolePlayer.MAUI" type="XamarinIOSProject" factoryName="Xamarin.iOS" activateToolWindowBeforeRun="false">
     <option name="PROJECT_PATH" value="$PROJECT_DIR$/RolePlayer.MAUI/RolePlayer.MAUI.csproj" />
     <option name="PROGRAM_PARAMETERS" value="" />
     <option name="IS_PASS_PARENT_ENVS" value="false" />
     <method v="2" />
   </configuration>
-  <configuration default="false" name="RolePlayer.MAUI" type="XamarinMacProject" factoryName="Xamarin.Mac">
+  <configuration default="false" name="RolePlayer.MAUI" type="XamarinMacProject" factoryName="Xamarin.Mac" activateToolWindowBeforeRun="false">
     <option name="PROJECT_PATH" value="$PROJECT_DIR$/RolePlayer.MAUI/RolePlayer.MAUI.csproj" />
     <option name="PROGRAM_PARAMETERS" value="" />
-    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RolePlayer.MAUI/bin/Debug/net7.0-maccatalyst/maccatalyst-x64" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RolePlayer.MAUI/bin/Debug/net6.0-maccatalyst15.4/maccatalyst-x64" />
     <option name="PASS_PARENT_ENVS" value="0" />
     <method v="2">
       <option name="Build" />
