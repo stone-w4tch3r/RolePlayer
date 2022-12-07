@@ -2,7 +2,7 @@
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+	int count = int.MaxValue - 5;
 
 	public MainPage()
 	{
@@ -12,6 +12,15 @@ public partial class MainPage : ContentPage
 	private void OnCounterClicked(object sender, EventArgs e)
 	{
 		count++;
+		
+		if (count % 2 == 0)
+		{
+			Image.Source = ImageSource.FromFile("index.jpg");
+		}
+		else
+		{
+			Image.Source = ImageSource.FromFile("dotnet_bot.png");
+		}
 
 		if (count == 1)
 			CounterBtn.Text = $"Clicked {count} time";
