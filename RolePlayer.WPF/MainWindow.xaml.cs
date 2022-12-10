@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace RolePlayerWPF
+namespace RolePlayer.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

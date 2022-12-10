@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RolePlayer.Model", "RolePlayer.Model\RolePlayer.Model.csproj", "{C8B96522-6189-476F-8625-F31D17D71B56}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RolePlayer.View.WPF", "RolePlayer.View.WPF\RolePlayer.View.WPF.csproj", "{6AC6CE88-837A-4462-8073-8019B8AF9E92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RolePlayer.WPF", "RolePlayer.WPF\RolePlayer.WPF.csproj", "{6AC6CE88-837A-4462-8073-8019B8AF9E92}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF2367E4-858E-4F59-863D-A1CBD4AFE0EA}"
 	ProjectSection(SolutionItems) = preProject
