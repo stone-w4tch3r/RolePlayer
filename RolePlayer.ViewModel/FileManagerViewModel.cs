@@ -5,20 +5,20 @@ namespace RolePlayer.ViewModel;
 
 public class FileManagerViewModel : BaseViewModel
 {
-    private IEnumerable<IStory> _stories;
-    public IEnumerable<IStory> Stories
+    private IObservable<IStory> _stories;
+    public IObservable<IStory> Stories
     {
         get => _stories;
         set => SetField(ref _stories, value);
     }
-    public ICommand AddStoriesCommand { get; }
-    internal FileManagerViewModel(IEnumerable<IStory> stories)
+    public IExtendedCommand AddStoriesCommand { get; }
+    internal FileManagerViewModel(IObservable<IStory> stories)
     {
         _stories = stories;
-        AddStoriesCommand = new Command(AddStories);
+        AddStoriesCommand = new ExtendedCommand(AddStories);
     }
     private void AddStories()
     {
-
+        
     }
 }
