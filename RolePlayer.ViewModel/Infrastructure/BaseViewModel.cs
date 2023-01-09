@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace RolePlayer.ViewModel;
+namespace RolePlayer.ViewModel.Infrastructure;
 
 public abstract class BaseViewModel : INotifyPropertyChanged
 {

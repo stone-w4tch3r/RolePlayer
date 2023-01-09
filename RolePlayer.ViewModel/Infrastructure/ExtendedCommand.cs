@@ -1,4 +1,4 @@
-namespace RolePlayer.ViewModel;
+namespace RolePlayer.ViewModel.Infrastructure;
 
 public class ExtendedCommand : IExtendedCommand
 {

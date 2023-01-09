@@ -1,6 +1,6 @@
 using System.Windows.Input;
 
-namespace RolePlayer.ViewModel;
+namespace RolePlayer.ViewModel.Infrastructure;
 
 public interface IExtendedCommand : ICommand
 {
