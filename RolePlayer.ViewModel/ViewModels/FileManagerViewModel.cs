@@ -12,13 +12,9 @@ public class FileManagerViewModel : BaseViewModel
         set => SetField(ref _stories, value); 
     }
     public IExtendedCommand OpenStoriesFilePickerCommand { get; }
-    internal FileManagerViewModel(IObservable<IStory> stories)
+    internal FileManagerViewModel(Action openStoriesFilePickerAction)
     {
-        _stories = stories;
-        OpenStoriesFilePickerCommand = new ExtendedCommand(OpenStoriesFilePicker);
-    }
-    private void OpenStoriesFilePicker()
-    {
-        
+        OpenStoriesFilePickerCommand = new ExtendedCommand(openStoriesFilePickerAction);
+        // _stories = stories;
     }
 }
