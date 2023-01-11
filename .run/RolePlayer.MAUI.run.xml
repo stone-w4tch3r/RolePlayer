@@ -17,8 +17,8 @@
   <configuration default="false" name="RolePlayer.MAUI" type="XamarinMacProject" factoryName="Xamarin.Mac" activateToolWindowBeforeRun="false">
     <option name="PROJECT_PATH" value="$PROJECT_DIR$/RolePlayer.MAUI/RolePlayer.MAUI.csproj" />
     <option name="PROGRAM_PARAMETERS" value="" />
-    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RolePlayer.MAUI/bin/Debug/net7.0-maccatalyst15.4/maccatalyst-x64" />
-    <option name="PASS_PARENT_ENVS" value="0" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RolePlayer.MAUI/bin/Debug/net7.0-maccatalyst/maccatalyst-x64" />
+    <option name="PASS_PARENT_ENVS_MAC" value="1" />
     <method v="2">
       <option name="Build" />
     </method>
