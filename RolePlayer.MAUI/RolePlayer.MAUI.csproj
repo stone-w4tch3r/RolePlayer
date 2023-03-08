@@ -52,13 +52,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\RolePlayer.Essentials\RolePlayer.Essentials.csproj" />
+	  <Folder Include="Core" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Reference Include="/Users/me/RiderProjects/LiveSharp/build/livesharp.dll"/>
+	  <ProjectReference Include="..\RolePlayer.Essentials\RolePlayer.Essentials.csproj" />
 	</ItemGroup>
-
-	<Import Project="/Users/me/RiderProjects/LiveSharp/build/livesharp.targets" />
 
 </Project>
