@@ -2,13 +2,16 @@
 
 public partial class MainPage : ContentPage
 {
-	public MainPage() => InitializeComponent();
+	public MainPage()
+	{
+		InitializeComponent();
+	}
 
 	private void OnLoadFileCLicked(object sender, EventArgs e)
 	{
 		
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
+		// SemanticScreenReader.Announce(CounterBtn.Text);
 	}
 }
 
