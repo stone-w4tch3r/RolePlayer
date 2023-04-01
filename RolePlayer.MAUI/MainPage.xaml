@@ -28,7 +28,6 @@
                 HorizontalOptions="Center" />
 
             <Button
-                x:Name="Proceed button"
                 Text="Let's start"
                 HorizontalOptions="Center" />
 
