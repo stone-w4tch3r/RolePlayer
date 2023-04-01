@@ -1,4 +1,4 @@
-﻿namespace RolePlayer.MAUI;
+﻿namespace RolePlayer.MAUI.UI;
 
 public partial class AppShell : Shell
 {

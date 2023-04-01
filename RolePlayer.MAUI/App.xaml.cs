@@ -1,4 +1,6 @@
-﻿namespace RolePlayer.MAUI;
+﻿using RolePlayer.MAUI.UI;
+
+namespace RolePlayer.MAUI;
 
 public partial class App : Application
 {
