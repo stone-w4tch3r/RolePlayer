@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiIcons.Fluent;
+using Microsoft.Extensions.Logging;
 using RolePlayer.MAUI.Core.FunctionalExtensions;
 
 namespace RolePlayer.MAUI;
@@ -13,6 +14,7 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             })
+            .UseFluentMauiIcons()
 #if DEBUG
             .Map(x =>
             {
