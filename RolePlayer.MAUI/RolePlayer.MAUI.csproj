@@ -83,9 +83,13 @@
 	<ItemGroup>
 	  <None Remove="UI\Views\" />
 	  <None Remove="UI\Pages\" />
+	  <None Remove="Resources\Images\track_placeholder.svg" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="UI\Views\" />
 	  <Folder Include="UI\Pages\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Images\track_placeholder.svg" />
 	</ItemGroup>
 </Project>

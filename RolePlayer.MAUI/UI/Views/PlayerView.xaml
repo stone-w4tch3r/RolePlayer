@@ -5,10 +5,8 @@
              xmlns:fluent="clr-namespace:MauiIcons.Fluent;assembly=MauiIcons.Fluent"
              x:Class="RolePlayer.MAUI.UI.Views.PlayerView">
     <HorizontalStackLayout HorizontalOptions="Center">
-        <fluent:MauiIcon Icon="Previous48"/>
-        <fluent:MauiIcon Icon="Pause48"/>
-        <fluent:MauiIcon HeightRequest="200" Icon="Next16" IconAutoScaling="True"/>
-        <Image Aspect="Center" Source="{fluent:Icon Icon=BroadActivityFeed24}"/>
-        <Label Text="hello " FontFamily="Fluent_Icons_Regular" FontSize="Title"/>
+        <fluent:MauiIcon IconSize="200" Icon="Previous48"/>
+        <fluent:MauiIcon IconSize="200" Icon="Pause48"/>
+        <fluent:MauiIcon IconSize="200" Icon="Next48"/>
     </HorizontalStackLayout>
 </ContentView>

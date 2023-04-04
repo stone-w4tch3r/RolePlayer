@@ -6,12 +6,22 @@
              x:Class="RolePlayer.MAUI.UI.Pages.Tracks">
     <ContentPage.Content>
         <Grid>
-            <Label Text="Enter A Code"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center" />
-            <views:PlayerView
+            <Label
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
                 Margin="40"
-                VerticalOptions="End"/>
+                FontSize="48"
+                Text="Track Title"
+                />
+            <Image
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Source="track_placeholder.png"
+                />
+            <views:PlayerView
+                Scale="0.5"
+                VerticalOptions="End"
+                />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
