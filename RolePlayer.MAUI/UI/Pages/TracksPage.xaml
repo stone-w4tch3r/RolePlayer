@@ -16,11 +16,13 @@
             <Image
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
+                Scale="0.5"
                 Source="track_placeholder.png"
                 />
             <views:PlayerView
-                Scale="0.5"
+                HorizontalOptions="Center"
                 VerticalOptions="End"
+                Scale="0.5"
                 />
         </Grid>
     </ContentPage.Content>

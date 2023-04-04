@@ -64,7 +64,7 @@
 	  <MauiXaml Update="UI\AppShell.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
-	  <MauiXaml Update="UI\Pages\TracksView.xaml">
+	  <MauiXaml Update="UI\Pages\TracksPage.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
 	</ItemGroup>
@@ -74,7 +74,7 @@
 	    <DependentUpon>AppShell.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>
-	  <Compile Update="UI\Pages\TracksView.xaml.cs">
+	  <Compile Update="UI\Pages\TracksPage.xaml.cs">
 	    <DependentUpon>TracksView.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>
