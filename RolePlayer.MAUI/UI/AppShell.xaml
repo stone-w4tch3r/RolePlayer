@@ -5,16 +5,17 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ui="clr-namespace:RolePlayer.MAUI.UI"
+    xmlns:pages="clr-namespace:RolePlayer.MAUI.UI.Pages"
     NavBarIsVisible="False">
 
     <TabBar>
         <ShellContent
             Title="Home"
-            ContentTemplate="{DataTemplate ui:MainPage}"
+            ContentTemplate="{DataTemplate pages:MainPage}"
             Route="MainPage" />
         <ShellContent
             Title="Tracks"
-            ContentTemplate="{DataTemplate ui:Tracks}"
+            ContentTemplate="{DataTemplate pages:Tracks}"
             Route="Tracks" />
     </TabBar>
 
