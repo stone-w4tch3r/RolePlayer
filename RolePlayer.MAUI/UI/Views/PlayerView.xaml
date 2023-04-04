@@ -4,9 +4,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:fluent="clr-namespace:MauiIcons.Fluent;assembly=MauiIcons.Fluent"
              x:Class="RolePlayer.MAUI.UI.Views.PlayerView">
-    <HorizontalStackLayout HorizontalOptions="Center">
-        <fluent:MauiIcon IconSize="200" Icon="Previous48"/>
-        <fluent:MauiIcon IconSize="200" Icon="Pause48"/>
-        <fluent:MauiIcon IconSize="200" Icon="Next48"/>
-    </HorizontalStackLayout>
+    <Grid ColumnSpacing="30">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border
+            BackgroundColor="Red"
+            Grid.Column="0">
+            <fluent:MauiIcon
+                IconSize="200"
+                Icon="Previous48"
+                IconAutoScaling="True"/>
+
+        </Border>
+        <Border
+            BackgroundColor="Blue"
+            Grid.Column="1">
+            <fluent:MauiIcon
+                IconSize="200"
+                Icon="Pause48"
+                IconAutoScaling="True"/>
+        </Border>
+        <Border
+            BackgroundColor="Green"
+            Grid.Column="2">
+            <fluent:MauiIcon
+                Grid.Column="2"
+                IconSize="200"
+                Icon="Next48"
+                IconAutoScaling="True"/>
+        </Border>
+    </Grid>
 </ContentView>
