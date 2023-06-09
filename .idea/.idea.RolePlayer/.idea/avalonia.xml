@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="RolePlayer.Avalonia/RolePlayer.Avalonia/Views/MainView.axaml" value="RolePlayer.Avalonia/RolePlayer.Avalonia.Desktop/RolePlayer.Avalonia.Desktop.csproj" />
+        <entry key="RolePlayer.Avalonia/RolePlayer.Avalonia/Views/MainWindow.axaml" value="RolePlayer.Avalonia/RolePlayer.Avalonia.Desktop/RolePlayer.Avalonia.Desktop.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
